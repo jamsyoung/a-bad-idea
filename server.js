@@ -23,8 +23,8 @@ function healthcheck(request, response, next) {
 }
 
 
-server.get('/api/latest/path', getPath);
-server.head('/api/latest/path', getPath);
+server.get('/api/latest/htdocs', getPath);
+server.head('/api/latest/htdocs', getPath);
 
 server.get('/_healthcheck', healthcheck);
 
