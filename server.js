@@ -2,6 +2,7 @@
 
 var fs = require('fs'),
     restify = require('restify'),
+    util = require('util'),
     packageConfig = require('./package.json'),
     port = process.env.PORT || '8080',
     server = restify.createServer({name: 'Directory Reader'});
@@ -14,7 +15,7 @@ function getPath(request, response, next) {
         files = fs.readdirSync(path);
         response.send(200, files);
     } else {
-        response.send(500, {error: 'path does not exist'});
+        response.send(500, {error: util.format('path does not exist: %s', path)});
     }
 }
 
